@@ -1,5 +1,7 @@
 Revision history for MMS-Mail-Provider-UK02
 
+0.02    22-Sep-2005 / 15:00
+        Uses correct retrieve_phone_number method rather than calling devel version _retrieve_phone_number
 0.01    17-Sep-2005 / 16:10
         First version, released on an unsuspecting world.
 

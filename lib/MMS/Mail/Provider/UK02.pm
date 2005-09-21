@@ -14,11 +14,11 @@ MMS::Mail::Provider::UK02 - This provides a class for parsing an MMS::Mail::Mess
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
@@ -44,7 +44,7 @@ Return a new MMS::Mail::Provider::02 object.
 
 =item parse MMS::Mail::Message
 
-The parse method can be called as a class method or an instance method, normally it will be invoked as a class method.  It parses the MMS::Mail::Message object and returns an MMS::Mail::Message::Parsed object.
+The parse method is called as an instance method, normally it will be invoked as a class method.  It parses the MMS::Mail::Message object and returns an MMS::Mail::Message::Parsed object.
 
 =back
 
@@ -109,7 +109,7 @@ sub parse {
     }
   }
   # Set mobile number property to a VALID number
-  $parsed->phone_number($self->SUPER::_retrieve_phone_number($parsed->from));
+  $parsed->phone_number($self->retrieve_phone_number($parsed->from));
   return $parsed;
 
 }
