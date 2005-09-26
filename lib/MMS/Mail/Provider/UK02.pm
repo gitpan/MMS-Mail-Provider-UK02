@@ -14,11 +14,11 @@ MMS::Mail::Provider::UK02 - This provides a class for parsing an MMS::Mail::Mess
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
@@ -97,11 +97,17 @@ sub parse {
     return undef;
   }
 
+  my $skiptext = "You have received a Media Message";
+
   my $parsed = new MMS::Mail::Message::Parsed($message);
+
+  $parsed->header_subject($message->header_subject);
 
   foreach my $element (@{$parsed->attachments}) {
     if ($element->mime_type eq 'text/plain') {
-      $parsed->body_text($element->bodyhandle->as_string);
+      if ($element->bodyhandle->as_string !~ /$skiptext/m) {
+        $parsed->body_text($element->bodyhandle->as_string);
+      }
     } elsif ($element->mime_type =~ /jpeg$/) {
       $parsed->add_image($element);
     } elsif ($element->mime_type =~ /avi$/) {
@@ -109,7 +115,7 @@ sub parse {
     }
   }
   # Set mobile number property to a VALID number
-  $parsed->phone_number($self->retrieve_phone_number($parsed->from));
+  $parsed->phone_number($self->retrieve_phone_number($parsed->header_from));
   return $parsed;
 
 }
