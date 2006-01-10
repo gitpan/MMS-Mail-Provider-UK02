@@ -1,20 +1,58 @@
-MMS-Mail-Provider-UK02
+NAME
+    MMS::Mail::Provider::UK02 - This provides a class for parsing an
+    MMS::Mail::Message object that has been sent via the UK 02 network.
 
-MMS::ProviderMailParser::UK02 - This provides a default static class for parsing an MMS::MailMessage object into an MMS::MailMessage::ProviderParsed object.
+VERSION
+    Version 0.05
 
-INSTALLATION
+SYNOPSIS
+    This class provides a parse method for parsing an MMS::Mail::Message
+    object into an MMS::Mail::Message::Parsed object for MMS messages sent
+    from the UK 02 network.
 
-To install this module, run the following commands:
+METHODS
+    The following are the top-level methods of the MMS::Mail::Parser::02
+    class.
 
-    perl Makefile.PL
-    make
-    make test
-    make install
+  Constructor
+    "new()"
+        Return a new MMS::Mail::Provider::02 object.
 
+  Regular Methods
+    "parse" MMS::Mail::Message
+        The "parse" method is called as an instance method. It parses the
+        MMS::Mail::Message object and returns an MMS::Mail::Message::Parsed
+        object.
 
-COPYRIGHT AND LICENCE
+AUTHOR
+    Rob Lee, "<robl@robl.co.uk>"
 
-Copyright (C) 2005 Rob Lee
+BUGS
+    Please report any bugs or feature requests to
+    "bug-mms-mail-provider-uk02@rt.cpan.org", or through the web interface
+    at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MMS-Mail-Provider-UK02>.
+    I will be notified, and then you'll automatically be notified of
+    progress on your bug as I make changes.
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+NOTES
+    Please read the Perl artistic license ('perldoc perlartistic') :
+
+    10. THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+    MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+ACKNOWLEDGEMENTS
+    Thanks to Sam for the sample message.
+
+    As per usual this module is sprinkled with a little Deb magic.
+
+COPYRIGHT & LICENSE
+    Copyright 2005 Rob Lee, all rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+SEE ALSO
+    MMS::Mail::Message, MMS::Mail::Message::Parsed, MMS::Mail::Provider
+

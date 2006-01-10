@@ -14,11 +14,11 @@ MMS::Mail::Provider::UK02 - This provides a class for parsing an MMS::Mail::Mess
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 =head1 SYNOPSIS
 
@@ -98,7 +98,7 @@ sub parse {
 
   my $skiptext = "You have received a Media Message";
 
-  my $parsed = new MMS::Mail::Message::Parsed($message);
+  my $parsed = new MMS::Mail::Message::Parsed(message=>$message);
 
   $parsed->header_subject($message->header_subject);
 
