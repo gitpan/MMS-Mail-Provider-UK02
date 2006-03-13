@@ -14,11 +14,11 @@ MMS::Mail::Provider::UK02 - This provides a class for parsing an MMS::Mail::Mess
 
 =head1 VERSION
 
-Version 0.06
+Version 0.07
 
 =cut
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 =head1 SYNOPSIS
 
@@ -50,7 +50,7 @@ The C<parse> method is called as an instance method.  It parses the MMS::Mail::M
 
 =head1 AUTHOR
 
-Rob Lee, C<< <robl@robl.co.uk> >>
+Rob Lee, C<< <robl at robl.co.uk> >>
 
 =head1 BUGS
 
@@ -71,6 +71,7 @@ Please read the Perl artistic license ('perldoc perlartistic') :
 =head1 ACKNOWLEDGEMENTS
 
 Thanks to Sam for the sample message.
+Thanks to Col M for the message format update and patch
 
 As per usual this module is sprinkled with a little Deb magic.
 
@@ -114,7 +115,9 @@ sub parse {
     }
   }
   # Set mobile number property to a VALID number
-  $parsed->phone_number($self->retrieve_phone_number($parsed->header_from));
+  if ($parsed->header_from =~ /<(.*)>/) {
+          $parsed->phone_number($self->retrieve_phone_number($1));
+  }
   return $parsed;
 
 }

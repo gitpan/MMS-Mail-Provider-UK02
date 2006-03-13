@@ -1,6 +1,8 @@
 Revision history for MMS-Mail-Provider-UK02
 
-0.06    13-Jan-2005 / 17:50
+0.07	13-Mar-2006 / 14:37
+	Changed phone number retrieval based on patch submitted from C May
+0.06    13-Jan-2006 / 17:50
         Updated dependancies to include version numbers for MMS classes
 0.05	09-Jan-2006 / 16:05
 	Improved pod
