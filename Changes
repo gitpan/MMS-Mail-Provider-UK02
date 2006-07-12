@@ -1,5 +1,7 @@
 Revision history for MMS-Mail-Provider-UK02
 
+0.08	06-Jul-2006 / 19:17
+	Added improved video attachment recognition
 0.07	13-Mar-2006 / 14:37
 	Changed phone number retrieval based on patch submitted from C May
 0.06    13-Jan-2006 / 17:50
